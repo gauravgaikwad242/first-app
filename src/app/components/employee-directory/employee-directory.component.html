@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-primary">
+      <thead>
+        <tr>
+          <th scope="col" *ngFor="let empcol of employeeDetailsColumn">
+            {{ empcol.displayKey }}
+          </th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees | paginate:{itemsPerPage:5,currentPage:p}" class="">
+          <td *ngFor="let empcol of employeeDetailsColumn" scope="row">
+            {{ employee[empcol.valueKey] }}
+          </td>
+          <td>
+            <a (click)="editEmployee(employee)" name=""  class="btn btn-primary"  role="button">Edit</a>
+            <a (click)="deleteEmployee(employee)" name=""  class="btn btn-danger" role="button">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+  </div>
+
+  <!-- crud operation -->
+  <div class="container">
+    <div class="mb-3">
+      <label for="" class="form-label">Employee ID</label>
+      <input
+        type="text"
+        [(ngModel)]="formEmployee.empId"
+        class="form-control"
+        name=""
+
+        aria-describedby="helpId"
+        placeholder="Employee ID"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Employee Name</label>
+      <input
+        type="text"
+        [(ngModel)]="formEmployee.empName"
+        class="form-control"
+        name=""
+
+        aria-describedby="helpId"
+        placeholder="Employee Name"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Employee Phone</label>
+      <input
+        type="text"
+        [(ngModel)]="formEmployee.empPhone"
+        class="form-control"
+        name=""
+
+        aria-describedby="helpId"
+        placeholder="Employee Phone"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Employee Role</label>
+      <input
+        type="text"
+        [(ngModel)]="formEmployee.empRole"
+        class="form-control"
+        name=""
+
+        aria-describedby="helpId"
+        placeholder="Employee Role"
+      />
+    </div>
+    <div class="mb-3">
+      <a name=""  (click)="submitEmployee()" class="btn btn-primary"  role="button">Submit</a>
+    </div>
+  </div>
+</div>

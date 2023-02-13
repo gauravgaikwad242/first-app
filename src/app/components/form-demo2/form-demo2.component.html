@@ -1,0 +1,13 @@
+<div>
+  <form #myForm="ngForm" (submit)="submitMyForm(myForm)">
+    <legend>Details</legend>
+    <p>First Name<input [(ngModel)]="user.fname" name="firstName" ngModel type="text" required=""></p>
+    <p>last Name<input [(ngModel)]="user.lname" name="lastName" ngModel type="text"></p>
+    <p>occupation<input name="occupation" #occupation="ngModel" ngModel type="text"></p>
+    <button type="submit" value="submit">submit</button>
+    <button type="reset" value="reset">Clear</button>
+  </form>
+  <div><p>{{myForm.value | json}}</p></div>
+  <div><p>{{myForm.invalid }}</p></div>
+  <div><p>{{occupation.value}}</p></div>
+</div>

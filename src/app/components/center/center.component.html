@@ -1,0 +1,91 @@
+<div class="body">
+
+  <app-electronics></app-electronics>
+  <div class="controller">
+    <button class="btn btn-primary ms-2" (click)="hideDataBindingComp = !hideDataBindingComp"
+      title="syntax for all 3 types of data binding">Data Binding Component</button>
+    <button class="btn btn-primary ms-2" (click)="hideDirectiveComp = !hideDirectiveComp"
+      title="directives -structural and attribute">directives Component</button>
+    <button class="btn btn-primary ms-2" (click)="hideProductComp = !hideProductComp"
+      title="assignment with use of ngfor directive">Products cards</button>
+    <button class="btn btn-primary ms-2" (click)="hideReadJsonComp = !hideReadJsonComp"
+      title="4 steps of reading json file and also keyvalue pipe">Read Json</button>
+    <button class="btn btn-primary ms-2" (click)="hidengcontentComp = !hidengcontentComp"
+      title="syntax for ng-content directive">NGContent</button>
+    <button class="btn btn-primary ms-2" (click)="hideSortDataComp = !hideSortDataComp" title="">Sort search</button>
+    <button class="btn btn-primary ms-2" (click)="hideEmployeeDirComp = !hideEmployeeDirComp"
+      title="">employee-directory</button>
+    <button class="btn btn-primary ms-2" (click)="hidePipesComp = !hidePipesComp" title="">Pipes</button>
+    <button class="btn btn-primary ms-2" (click)="hideEmpCrudComp = !hideEmpCrudComp" title="">employee-crud</button>
+    <button class="btn btn-primary ms-2" (click)="hideParentComp = !hideParentComp" title="">component
+      communication</button>
+    <button class="btn btn-primary ms-2" (click)="hideserviceComp = !hideserviceComp" title="">service demo</button>
+    <button class="btn btn-primary ms-2" (click)="hidedynamicdirectory = !hidedynamicdirectory" title=""> employee
+      directory</button>
+    <button class="btn btn-primary ms-2" (click)="hidesubjectcomp = !hidesubjectcomp" title=""> subjectdemo
+      directory</button>
+    <button class="btn btn-primary ms-2" (click)="hideform1comp = !hideform1comp" title="">forms demo 1</button>
+    <button class="btn btn-primary ms-2" (click)="hideTemplatecomp = !hideTemplatecomp" title="">Template form</button>
+    <button class="btn btn-primary ms-2" (click)="hidemessagecomp = !hidemessagecomp" title="">message app (subjectdemo)</button>
+    <button class="btn btn-primary ms-2" routerLink="/observable" title=""> observable</button>
+  </div>
+  <div style="color: antiquewhite;">
+  <a *ngFor="let button of buttons" name="" id="" class="btn btn-primary" [routerLink]="button.componentLink" routerLinkActive="Active" role="button">{{button.buttonName}}</a>
+  </div>
+  <div [hidden]="hideDataBindingComp">
+    <app-databinding></app-databinding>
+  </div>
+  <div [hidden]="hideDirectiveComp">
+    <app-directives></app-directives>
+  </div>
+  <div [hidden]="hideProductComp">
+    <app-products></app-products>
+  </div>
+  <div [hidden]="hideReadJsonComp">
+    <app-users></app-users>
+  </div>
+  <div [hidden]="hidengcontentComp">
+    <app-callcontentng></app-callcontentng>
+  </div>
+  <div [hidden]="hideSortDataComp">
+    <app-sortdata></app-sortdata>
+  </div>
+  <div [hidden]="hideEmployeeDirComp">
+    <app-employee-directory></app-employee-directory>
+  </div>
+  <div [hidden]="hidePipesComp">
+    <app-pipes></app-pipes>
+  </div>
+  <div [hidden]="hideEmpCrudComp">
+    <app-employee-crud></app-employee-crud>
+  </div>
+  <div [hidden]="hideParentComp">
+    <app-parent></app-parent>
+  </div>
+  <div [hidden]="hideserviceComp">
+    <app-service-demo></app-service-demo>
+    <app-service-demo></app-service-demo>
+  </div>
+  <div [hidden]="hidedynamicdirectory">
+    <app-employee-directory-dynamic></app-employee-directory-dynamic>
+  </div>
+  <div *ngIf="hideobservablecomp">
+    <app-observables></app-observables>
+  </div>
+  <div *ngIf="hidesubjectcomp">
+   <app-subjectdemo1></app-subjectdemo1>
+  </div>
+  <div *ngIf="hidemessagecomp">
+  <app-send-message></app-send-message>
+  <hr>
+  <app-receive-message></app-receive-message>
+  </div>
+  <div *ngIf="hideform1comp">
+    <app-form-demo1></app-form-demo1>
+   </div>
+  <div *ngIf="hideTemplatecomp">
+    <app-form-demo2></app-form-demo2>
+   </div>
+   <router-outlet></router-outlet>
+</div>
+

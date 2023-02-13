@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col colMar">
+            <div *ngFor="let product of productCardArray">
+                <div class="card cardsize">
+                    <img [src]="product.image" class="card-img-top" alt="Fissure in Sandstone" />
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.title}}</h5>
+                        <h6 style="color: greenyellow;">{{product.price}}</h6>
+
+                        <p class="card-text">{{product.category}}</p>
+                    <p class="card-text">Product Rating : {{product.rating.rate}}</p><p class="card-text">Rated by : {{product.rating.count}} customers</p>
+                     <a (click)="buyProd(product)" class="btn btn-primary">Buy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

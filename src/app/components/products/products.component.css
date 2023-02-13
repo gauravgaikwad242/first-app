@@ -1,0 +1,48 @@
+
+.cardsize{
+    max-height: 800px;
+}
+.container {
+    display: block;
+    width: 100%;
+  }
+  
+  .card {
+    border: 1px solid black;
+    float: left;
+    margin: 1px;
+    padding: 3px 3px;
+    /*setting width for each and every card element as well as -10px for removing the margin width for 5 elements*/
+    width: calc( 100% / 5 - 10px);
+  }
+  
+  
+  /*first element*/
+  
+  .container .card:first-child {
+    margin-left: 0;
+  }
+  
+  
+  /*last element of the first row*/
+  
+  .container .card:nth-child(5n) {
+    margin-right: 0;
+  }
+  
+  
+  /*first-element of the 2nd row*/
+  
+  .container .card:nth-child(5n+1) {
+    margin-left: 0;
+  }
+  
+  
+  /*last element*/
+  
+  .container .card:last-child {
+    margin-right: 0;
+  }
+  .colMar{
+    margin: 20px;
+  }

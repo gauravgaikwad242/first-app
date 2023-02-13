@@ -1,0 +1,17 @@
+<div style="background-color:rgb(255, 255, 1);" class="container-fluid">
+  <div style="min-height: 90px;" class="container-fluid border">Parent component</div>
+  <h4>data from child 2 is servername : {{child2data}}</h4>
+  <p class="titleInfo">another way instead of using @output with temp ref variable <strong>{{childTwo.serverName}}</strong></p>
+
+  <div class="row">
+    <div style=" background-color: beige;min-height: 600px;" class="col border">
+      <input style="min-width: 400px;" placeholder="for child one" type="text" [(ngModel)]="parentData1">
+      <app-child1 [child2data]="child2data" [parenttochild]="parentData1" ></app-child1>
+    </div>
+    <div style="background-color: rgb(190, 221, 255);min-height: 600px;" class="col border">
+      <input style="min-width: 400px; " placeholder="for child two" type="text" [(ngModel)]="parentData2">
+      <app-child2 [parenttochild2]="parentData2" (serverEvent)="receiveFromChild($event)" #childTwo></app-child2>
+    </div>
+  </div>
+</div>
+

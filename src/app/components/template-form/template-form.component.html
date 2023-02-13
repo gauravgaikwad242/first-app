@@ -1,0 +1,65 @@
+<div class="container mt-2">
+  <form #googleform="ngForm" (submit)="submitForm(googleform)">
+    <div class="mb-3 row">
+      <label for="inputName" class="col-4 col-form-label">First Name</label>
+      <div class="col-8">
+        <input type="text" ngModel class="form-control" name="fname" id="fname" placeholder="First Name">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="inputName" class="col-4 col-form-label">Last Name</label>
+      <div class="col-8">
+        <input type="text" ngModel class="form-control" name="lname" id="lname" placeholder="Last Name">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="checkbox" class="col-4 col-form-label">agree</label>
+      <div class="col-8">
+        <input ngModel type="checkbox" name="checkbox" id="checkbox">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="inputName" class="col-4 col-form-label">Select City</label>
+      <div class="col-8">
+        <select class="form-select" ngModel name="city">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+    </div>
+
+    <fieldset class="mb-3 row">
+      <legend class="col-form-legend col-4">Male</legend>
+      <div class="col-8">
+        <div class="form-check">
+          <input class="form-check-input" #checkbox1="ngModel" value="yes" ngModel type="radio" name="gender" id="1">
+          <label class="form-check-label" for="">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" value="no" ngModel type="radio" name="gender" id="2">
+          <label class="form-check-label" for="">
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+    <div class="mb-3 row">
+      <div class="offset-sm-4 col-sm-8">
+        <button type="submit" class="btn btn-primary" [disabled]="googleform.invalid">Action</button>
+      </div>
+    </div>
+    <span class="text-danger" *ngIf="googleform.invalid">form invalid </span>
+
+
+  </form>
+</div>
+<form action="">
+  <div>
+    <input name="fav_language" type="radio">
+    <input name="fav_language" type="radio">
+  </div>
+</form>
+

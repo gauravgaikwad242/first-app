@@ -1,0 +1,104 @@
+<div class="container-fluid mt-2">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="table-responsive">
+        <table class="table table-primary">
+          <thead>
+            <tr>
+              <th (click)="columnSort(empcol)" scope="col" *ngFor="let empcol of employeeColumn">
+                {{ empcol.displayKey }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="
+                let employee of employees | filter:searchText
+                  | paginate : { itemsPerPage: 5, currentPage: p }
+              " class="">
+              <td *ngFor="let empcol of employeeColumn" scope="row">
+                <ng-container *ngIf="empcol.valueKey == 'action'; else elseBlock">
+                  <a style="margin: 5px;" (click)="viewEmployee(employee)" type="button" class="btn btn-info"
+                    data-bs-toggle="modal" data-bs-target="#myModal">view</a>
+                  <a style="margin: 5px;" (click)="editEmployeeFill(employee)" name="" class="btn btn-primary"
+                    role="button">Edit</a>
+                  <a style="margin: 5px;" (click)="deleteEmployee(employee)" name="" class="btn btn-danger"
+                    role="button">Delete</a>
+                </ng-container>
+                <ng-template #elseBlock>
+                  {{ employee[empcol.valueKey] }}</ng-template>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <input placeholder="Search Employee" type="search" name="" id="" [(ngModel)]="searchText">
+        <div class="row">
+          <div class="col-sm-4"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
+          <div class="col-sm-3">Jump to page &nbsp;&nbsp; <input title="jump to page" style="max-width: 60px;" [(ngModel)]="p" type="number"></div>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="container-fluid">
+        <h3>Employee Form</h3>
+        <div class="mb-3">
+          <label for="" class="form-label">Employee ID</label>
+          <input disabled type="text" [(ngModel)]="formEmployee.empId" class="form-control" name=""
+            aria-describedby="helpId" placeholder="Employee ID" />
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Employee Name</label>
+          <input type="text" [(ngModel)]="formEmployee.empName" class="form-control" name="" aria-describedby="helpId"
+            placeholder="Employee Name" />
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Employee Phone</label>
+          <input type="number" [(ngModel)]="formEmployee.empPhone" class="form-control" name=""
+            aria-describedby="helpId" placeholder="Employee Phone" />
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Employee Role</label>
+          <input type="text" [(ngModel)]="formEmployee.empRole" class="form-control" name="" aria-describedby="helpId"
+            placeholder="Employee Role" />
+        </div>
+        <div class="mb-3">
+          <a name="" (click)="addEmployee()" class="btn btn-primary" role="button">Submit</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">{{modalEmployee.empName}}</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+
+      <div class="modal-body">
+        <img height="100px" width="100px" src="assets/OIP.jpg" alt="">
+        <h6>Employee ID : {{modalEmployee.empId}}</h6>
+        <h6>Employee Name : {{modalEmployee.empName}}</h6>
+        <h6>Employee Phone no : {{modalEmployee.empPhone}}</h6>
+        <h6>Employee Role : {{modalEmployee.empRole}}</h6>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <h5>{{modalEmployee.empRole}} Engineer</h5>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

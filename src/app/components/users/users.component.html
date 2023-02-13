@@ -1,0 +1,68 @@
+<div>
+ <div class="container">
+  <h5 class="titles">*ngFor predefined attributes</h5>
+  <p class="titleInfo">
+    predefined attributes are index:number, (first, last, odd, even):boolean
+  </p>
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <td>name</td>
+        <td>username</td>
+        <td>email</td>
+        <td>indexNo</td>
+        <td>isOdd</td>
+        <td>isEven</td>
+        <td>isFirst</td>
+        <td>isLast</td>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of users; let indexNo=index;
+    let isOdd = odd;
+    let isEven= even;
+    let isFirst = first;
+    let isLast = last" >
+    <td>{{user.name}}</td>
+    <td>{{user.username}}</td>
+    <td>{{user.email}}</td>
+    <td>{{indexNo}}</td>
+    <td>{{isOdd}}</td>
+    <td>{{isEven}}</td>
+    <td>{{isFirst}}</td>
+    <td>{{isLast}}</td>
+  </tbody>
+  </table>
+ </div>
+
+  <div class="container">
+    <h5 class="titles">loading table data dynamically syntax</h5>
+    <p class="titleInfo">load table data without hardcoding column names or explicit mapping</p>
+    <table class="table table-responsive">
+      <thead>
+        <tr><th [title]="column" *ngFor="let column of userColumn">{{column}}</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td *ngFor="let key of userColumn">{{user[key]}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container">
+    <h5 class="titles">Inbuilt PIPES for getting keys from object eg...</h5>
+    <p class="titleInfo">this pipe <strong>keyvalue</strong> is used to get keys from object</p>
+    <table class="table">
+      <thead>
+        <tr><th [title]="column" *ngFor="let column of userColumn">{{column}}</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td *ngFor="let entry of user|keyvalue">
+            {{entry.value}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

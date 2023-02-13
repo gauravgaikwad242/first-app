@@ -1,0 +1,55 @@
+<div>
+    <div>
+        <h5 class="titles">Interpolation Binding - One way Binding</h5>
+        <div>
+            <p>Following college name is declared in component (ts) :: {{collegeName}}</p>
+            <pre [innerText]="ab"></pre>
+        </div>
+    </div>
+    <div>
+        <hr>
+        <h5 class="titles">Property Binding - One way Binding</h5>
+        <div>
+            <p>Following input filed value is coming from ts file</p>
+            <input type="text" [value]="field">
+        </div>
+        <div>
+            <p>Following input filed value is coming from ts file with different syntax</p>
+            <input type="text" bind-value="field">
+        </div>
+    </div>
+    <div>
+        <hr>
+        <h5 class="titles" for="binding">TWO WAY BINDING with [(ngMode)]</h5>
+        <input name="binding" type="text" [(ngModel)]="twoWayVariable">
+        <input type="text" [value]="twoWayVariable ">
+    </div>
+    <hr>
+    <div>
+        <h5 class="titles" for="">assignment text reduce</h5>
+        <p>remaining character are {{100-textBox.length}}</p>
+        <textarea [(ngModel)]="textBox" cols="30" rows="10"></textarea>
+        <p [innerHTML]="textBox.length"></p>
+    </div>
+    <hr>
+    <div>
+        <h5 class="titles">Template reference variable</h5>
+        <div>
+            <input value="hi" #data id="inp" type="text">
+            <button (click)="giveAlert(data)">Alert</button>
+            <p>{{data}}</p>
+            <p>{{data.value}}</p>
+        </div>
+    </div>
+    <div>
+        <button class="btn btn-primary" (click)="hide()">hide/unhide</button>
+        <p [hidden]="isHidden">this is a paragraph</p>
+       
+       
+       
+    <div class="m-10" > <input [type]="checked ? 'password' : 'text'"></div>
+    <input class="m-10" style="height: 60px;width: 60px;" type="checkbox" (change)="checked= !checked" name="checkbox" id="">
+    
+    </div>
+
+</div>

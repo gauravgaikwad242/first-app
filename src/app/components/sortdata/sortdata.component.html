@@ -1,0 +1,20 @@
+
+  <div class="container">
+    <div class="container"><a (click)="sortAscending()" class="btn btn-primary" role="button">Button asc</a>
+    </div>
+    <div class="container"><a (click)="sortDescending()" class="btn btn-primary" role="button">Button desc</a>
+    </div>
+    <input type="search" name="" id="" [(ngModel)]="searchText">
+    <table class="table table-responsive">
+      <thead>
+        <tr><th [title]="column" *ngFor="let column of userColumn">{{column}}</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users| filter:searchText | paginate:{itemsPerPage:5,currentPage:p}">
+          <td *ngFor="let key of userColumn">{{user[key]}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+  </div>
+

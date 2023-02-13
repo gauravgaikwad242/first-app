@@ -1,0 +1,83 @@
+<div>
+    <div>
+        <h5 class="titles">1.0 Directives</h5>
+        <p class="titleInfo">Directives enhances the html power <br> it changes behaviour of html</p>
+       <div>
+        <h5 class="titles">1.1 Structural Directives</h5>
+        <p class="titleInfo">structure directives changes the DOM structure of html</p>
+        <input type="text" #data [(ngModel)]="dataNum">
+
+        <div *ngIf="dataNum%2 === 0 ; else elseBlock">{{dataNum}} - is even</div>
+        <ng-template #elseBlock><div>{{dataNum}} - is odd</div></ng-template>
+       </div>
+
+       <h5 class="titles">*ngSwitch</h5>
+       <!-- <div>
+        <div><h1 [ngSwitch]="switchVar"></h1>
+            <p *ngSwitchCase="1">sunday</p>
+            <p *ngSwitchCase="2">Monday</p>
+            <p *ngSwitchCase="3">tuesday</p>
+            <p *ngSwitchCase="4">wednesday</p>
+            <p *ngSwitchCase="5">thursday</p>
+            <p *ngSwitchCase="6">friday</p>
+            <p *ngSwitchCase="7">saturday</p>
+        </div>
+       </div> -->
+
+    </div>
+    <!-- <div>
+        <h5 class="titles">*ngFor</h5>
+            <div>
+                <ul>
+                    <li></li>
+                </ul>
+            </div>
+
+    </div> -->
+
+    <div>
+        <h5 class="titles">*ngFor</h5>
+            <ul>
+                <li *ngFor="let name of names">{{name}}</li>
+            </ul>
+            <div>
+                <select [(ngModel)]="nameLength" name="" id="">
+                    <option [value]="name.length" *ngFor="let name of names">{{name}}</option>
+                </select>
+                <p>name lenth is {{nameLength}}</p>
+            </div>
+    </div>
+    <h6 class="titles">datalist tag</h6>
+    <p class="titleInfo">for giving input and select together for large dropdown lists</p>
+    <input [(ngModel)]="selectedName" list="names">
+    <datalist id="names">
+        <option *ngFor="let name of countryList">
+            {{name}}</option>
+    </datalist>
+    <p>country selected is {{selectedName}}</p>
+
+    <h5 class="titles">NgStyle and NgClass</h5>
+    <p class="titleInfo">adding css dynamically to html</p>
+    <p class="titleInfo">adding class dynamically to elements</p>
+
+    <p [style.color]="selectedName=='India'? 'orange':'green'">select india as country to change color</p>
+
+    <div>
+      <h5 class="titles">Ngtemplate and Ngcontainer</h5>
+    </div>
+
+      <div class="assignment">
+        <h6></h6>
+       <tbody>
+        <tr *ngFor="let user of userArray;let ind= index">
+          <ng-container *ngIf="ind%3==0;else elseBlock">
+            <td style="color: rebeccapurple;">{{user.name}}</td>
+          </ng-container>
+          <ng-template #elseBlock>
+            <td style="color: green;">{{user.name}}</td>
+          </ng-template>
+        </tr>
+       </tbody>
+      </div>
+
+  </div>

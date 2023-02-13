@@ -1,0 +1,51 @@
+<div class="container">
+  <h5 class="titles">pipes</h5>
+  <p class="titleInfo">to transform data</p>
+  <h5>{{cricketer}}</h5>
+  <h5>{{cricketer | titlecase}}</h5>
+  <h5>{{cricketer | uppercase}}</h5>
+  <h5>{{cricketer | lowercase}}</h5>
+
+
+  <p class="titleInfo">Pipes with argument  variable| pipe:'arguments'</p>
+  <h5>{{salary | currency}}</h5>
+  <h5>{{salary | currency : 'INR'}}</h5>
+  <h5>{{salary | currency : '&euro;'}}</h5>
+  <h5>{{salary | currency : '&yen;'}}</h5>
+
+  <h4 class="titles">Date pipe</h4>
+  <h5>{{today }}</h5>
+  <h5>{{today | date}}</h5>
+  <h5>{{today | date:'fullDate'}}</h5>
+  <h5>{{today | date}}</h5>
+  <h5>{{today | date}}</h5>
+
+  <h5>{{employee | json}}</h5>
+
+  <h6 class="titles">keyvalue</h6>
+  <p class="titleInfo">for looping the Object</p>
+  <h5 *ngFor="let emp of employee | keyvalue">
+    {{emp.key}}-----{{emp.value}}
+  </h5>
+
+  <h5 class="titles">slice pipe</h5>
+  <p class="titleInfo">slice can use for Array as well as strings</p>
+  <h6>{{cricketer | slice:1:5}}</h6>
+
+  <h4 class="titles">pipechaining</h4>
+  <p class="titleInfo">using multiple pipe pipe1|pipe2|pipe3</p>
+  <h5>{{today | date | uppercase}}</h5>
+  <h5>{{today | date | lowercase}}</h5>
+  <h5>{{cricketer | ordinal}}</h5>
+  <hr>
+
+  <div class="container">
+    <h4 class="titles">custom Pipe</h4>
+    <div class="container">
+      <h5 class="titles">Ordianl</h5>
+
+      <input [(ngModel)]="custnum" type="number" placeholder="enter num" name="" id="">
+      <p>{{custnum | ordinal}}</p>
+    </div>
+  </div>
+</div>
